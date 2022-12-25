@@ -1,33 +1,32 @@
 > Concepts
 
-
 <details>
  <summary> What is Emmet ? </summary>
-</details> 
+</details>
 
 <details>
  <summary>  Difference between a Library and Framework ? </summary>
-</details> 
+</details>
 
 <details>
  <summary>What is CDN? Why do we use it ?</summary>
-</details> 
+</details>
 
 <details>
  <summary>  Why is React known as React ? </summary>
-</details> 
+</details>
 
 <details>
  <summary>  What is crossorigin in script tag ?</summary>
-</details> 
+</details>
 
 <details>
  <summary>  What is diference between React and ReactDOM ? </summary>
-</details> 
+</details>
 
 <details>
  <summary>  What is diference between React and ReactDOM ? </summary>
-</details> 
+</details>
 
 <details>
  <summary>  What is diference between React and ReactDOM ? </summary>
@@ -37,21 +36,20 @@
 
 <details>
  <summary>  What is diference between React and ReactDOM ? </summary>
-</details> 
+</details>
 
 <details>
  <summary>  What is diference between React and ReactDOM ? </summary>
-</details> 
+</details>
 
 <details>
  <summary>  What is diference between React and ReactDOM ? </summary>
-</details> 
+</details>
 
 <details>
  <summary>  What is diference between React and ReactDOM ? </summary>
-</details> 
+</details>
 
->References <br>
- [R1]( https://beta.reactjs.org/apis/react/createElement ) <br>
-[R2]( https://www.youtube.com/watch?v=IrHmpdORLu8 )
->
+> References <br>
+> [R1](https://beta.reactjs.org/apis/react/createElement) <br>
+> [R2](https://www.youtube.com/watch?v=IrHmpdORLu8)
