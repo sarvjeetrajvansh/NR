@@ -92,3 +92,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 // render react component like below
 
 root.render(<HeaderComponent />);
+
+// Jsx is react element at end and react element is a js object
+
+// In react component within {} you can write any piece of js code.
