@@ -22,10 +22,10 @@ jobs:
         run: |
           cd LayingFoundation
           npm run build
-      - name: Build dev Project
-        run: |
-          cd LayingFoundation
-          npm start
+      # - name: Build dev Project
+      #   run: |
+      #     cd LayingFoundation
+      #     npm start
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
