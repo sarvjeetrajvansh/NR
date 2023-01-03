@@ -19,7 +19,7 @@
  * consistent Hashing algo for bundling
  * Zero Config
  * Transitive Dependencies
- *
+ * Tree Shaking - Removing unwanted code
  */
 
 import React from "react";
