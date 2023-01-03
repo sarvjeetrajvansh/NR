@@ -1,0 +1,19 @@
+name: CI-DEV
+on: [workflow_dispatch]
+
+jobs:
+  CI:
+   runs-on: ubuntu-latest
+   steps:
+    - name: Checking Out code
+      uses: actions/checkout@v3
+    - name: install node
+      uses: actions/setup-node
+      with:
+        node-version : 16
+    - name : switch to project folder
+      run: |
+        cd LayingFoundation
+    - name: build code
+      run: | 
+        np
