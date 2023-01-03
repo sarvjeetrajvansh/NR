@@ -8,7 +8,7 @@ jobs:
       - name: Checking Out code
         uses: actions/checkout@v3
       - name: install node
-        uses: actions/setup-node
+        uses: actions/setup-node@v3
         with:
           node-version: 16
           cache: "npm"
@@ -25,6 +25,6 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifacts@v3
         with:
-          name: LayingFoundation@v1
+          name: LayingFoundation v1
           path: LayingFoundation/dist
           if-no-files-found: error
