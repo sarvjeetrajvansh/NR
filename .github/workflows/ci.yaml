@@ -3,17 +3,28 @@ on: [workflow_dispatch]
 
 jobs:
   CI:
-   runs-on: ubuntu-latest
-   steps:
-    - name: Checking Out code
-      uses: actions/checkout@v3
-    - name: install node
-      uses: actions/setup-node
-      with:
-        node-version : 16
-    - name : switch to project folder
-      run: |
-        cd LayingFoundation
-    - name: build code
-      run: | 
-        np
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checking Out code
+        uses: actions/checkout@v3
+      - name: install node
+        uses: actions/setup-node
+        with:
+          node-version: 16
+          cache: "npm"
+      - name: switch to project folder
+        run: |
+          cd LayingFoundation
+      - name: Install Package
+        run: |
+          npm install
+      - name: Build Project
+        run: npm run build
+      - name: Build dev Project
+        run: npm start
+      - name: Upload artifacts
+        uses: actions/upload-artifacts@v3
+        with:
+          name: LayingFoundation@v1
+          path: LayingFoundation/dist
+          if-no-files-found: error
