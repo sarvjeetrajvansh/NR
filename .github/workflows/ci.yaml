@@ -7,20 +7,25 @@ jobs:
     steps:
       - name: Checking Out code
         uses: actions/checkout@v3
+      - name: switch to project folder
+        run: |
+          cd LayingFoundation
       - name: install node
         uses: actions/setup-node@v3
         with:
           node-version: 16
-      - name: switch to project folder
-        run: |
-          cd LayingFoundation
       - name: Install Package
         run: |
+          cd LayingFoundation
           npm install
       - name: Build Project
-        run: npm run build
+        run: |
+          cd LayingFoundation
+          npm run build
       - name: Build dev Project
-        run: npm start
+        run: |
+          cd LayingFoundation
+          npm start
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
