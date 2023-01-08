@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <>
-      <h4>FoodVilla 2023 </h4>
+      <div className="footer">FoodVilla 2023 | Made with 🍔 🍕 🍜 in India</div>
     </>
   );
 };

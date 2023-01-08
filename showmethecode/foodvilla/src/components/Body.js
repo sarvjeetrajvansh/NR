@@ -4,7 +4,7 @@ import { useState } from "react";
 
 function filterData(searchText, restaurants) {
   const filterData = restaurants.filter((restaurant) =>
-    restaurant.data.data.name.includes(searchText)
+    restaurant.data.data.cuisines.includes(searchText)
   );
 
   return filterData;
@@ -23,7 +23,7 @@ const Body = () => {
         <input
           type="text"
           className="search-input"
-          placeholder="Search"
+          placeholder="cuisines : Chinese, Italian etc."
           value={SearchTxt}
           onChange={(e) => {
             setSearchText(e.target.value);
@@ -34,9 +34,15 @@ const Body = () => {
           onClick={() => {
             //need to filter data
             //filter data & update state of resturant vars
-            const data = filterData(SearchTxt, ResturantList);
-            setRestaurants(data);
-            setSearchCounter((searchCounter += 1));
+            if (SearchTxt.length > 0) {
+              const data = filterData(SearchTxt, ResturantList);
+              setRestaurants(data);
+              setSearchCounter((searchCounter += 1));
+            } else {
+              {
+                alert("Please enter a value to Search");
+              }
+            }
           }}
         >
           Search
@@ -44,8 +50,13 @@ const Body = () => {
         <span className="search-counter">You 🔎 {searchCounter} Times </span>
       </div>
       <div className="restaurant-list">
-        {restaurants.map((restaurant, index) => {
-          return <ResturantCard {...restaurant.data.data} key={index} />;
+        {restaurants.map((restaurant) => {
+          return (
+            <ResturantCard
+              {...restaurant.data.data}
+              key={restaurant.data.data.id}
+            />
+          );
         })}
       </div>
     </>
