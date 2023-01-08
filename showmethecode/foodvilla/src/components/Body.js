@@ -47,7 +47,7 @@ const Body = () => {
         >
           Search
         </button>
-        <span className="search-counter">You 🔎 {searchCounter} Times </span>
+        <span className="search-counter"> 🔎 {searchCounter} Times </span>
       </div>
       <div className="restaurant-list">
         {restaurants.map((restaurant) => {
