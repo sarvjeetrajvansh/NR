@@ -1,7 +1,7 @@
 import { ResturantList_URL } from "../config";
 import ResturantCard from "./ResturantCard";
 import { useState, useEffect } from "react";
-import Shimmer from "./Shimmer";
+import { ShimmerPostList } from "react-shimmer-effects-18";
 
 function filterData(searchText, restaurants) {
   const filterData = restaurants.filter((restaurant) =>
@@ -31,12 +31,13 @@ const Body = () => {
     getResturants();
   }, []);
 
-  if (!allRestaurants) return null;
+  // if (!allRestaurants) return null;
 
-  if (filteredRestaurants?.length === 0) return <Shimmer />;
+  // if (filteredRestaurants?.length === 0)
+  //   return <ShimmerPostList postStyle="STYLE_FOUR" col={3} row={2} gap={30} />;
 
-  return allRestaurants?.length === 0 ? (
-    <Shimmer />
+  return filteredRestaurants?.length === 0 ? (
+    <ShimmerPostList postStyle="STYLE_FOUR" col={3} row={3} gap={20} />
   ) : (
     <>
       <div className="search-container">
