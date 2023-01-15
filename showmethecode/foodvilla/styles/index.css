@@ -1,9 +1,8 @@
 .header {
   display: flex;
   justify-content: space-between;
-  margin: 10px;
-  background-color: #e9e9e9;
-  border-bottom: 1px solid #ccc;
+  flex-wrap: wrap;
+  border-bottom: 2px solid whitesmoke;
   font: 1rem;
   font-weight: 900;
 }
@@ -14,13 +13,13 @@
 
 body {
   font-family: "Montserrat", sans-serif;
-  background: white;
   color: rgb(5, 40, 101);
 }
 
 .nav-items > ul {
   list-style-type: none;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .nav-items > ul > li {
@@ -29,27 +28,79 @@ body {
 
 .logo {
   width: 5rem;
-  border-radius: 5px;
-  border: none;
-  height: auto;
-  justify-items: flex-start;
+  margin-bottom: -50px;
+  padding: 5px;
+}
+.menu {
+  border: 1px solid silver;
+  display: flex;
+  justify-items: center;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0.3rem;
+  padding: 0.6rem;
+  width: max-content;
+}
+.resturant-details {
+  border-left: 1px solid silver;
+  display: block;
+  margin: 1rem;
+  padding: 4rem;
+}
+.res-identifier {
+  font-size: 30px;
+  font-weight: 900;
+}
+.res-location {
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 5px;
+  display: block;
+}
+.menu span {
+  font-size: xx-small;
+  padding: 0.2rem;
+}
+.menu-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.menu > img {
+  width: 300px;
+  height: fit-content;
+}
+
+.menu-link {
+  display: flex;
+  flex-basis: 0;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .card {
   width: 16rem;
-  /* border: 1px solid #ccc; */
   padding: 0.5rem;
   margin: 0.2rem;
-  /* border-radius: 5px; */
   font: 1em;
-  /* box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3); */
   transition: 0.3s;
   justify-content: center;
   align-items: center;
+  border-bottom: 1px solid #e9e9e9;
+  flex-basis: 0;
+  flex-grow: 0;
 }
 .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  border: 0.5px solid #ccc;
+  box-shadow: 1px 0px 6px 1px silver;
+  border-bottom: 4px solid #ed0480;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(5, 40, 101);
 }
 
 .card > img {
@@ -62,66 +113,44 @@ body {
 }
 
 .search-container {
-  margin: 10px;
-  padding: 10px;
+  padding: 0.2rem;
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
-  background-color: #e9e9e9;
-  font-size: large;
-  font-weight: 800;
-  font: 1em;
 }
 .search-input {
+  padding: 10px;
+  border: 2px solid silver;
+  border-radius: 5px;
+  width: 20rem;
+  color: rgb(5, 40, 101);
+  font-size: small;
+  font-weight: 200;
+}
+.search-btn {
+  padding: 10px;
+  margin: 6px;
+  background: #ed0480;
+  color: seashell;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+.auth-btn {
+  padding: 6px;
+  background: #ed0480;
+  color: seashell;
+  font-size: 17px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font: 1em;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-}
-.search-counter {
-  float: right;
-  padding: 6px;
-  border: none;
-  margin-top: 8px;
-  margin-right: 16px;
-  font-size: 17px;
-  border-radius: 5px;
-  font: 1em;
-}
-.search-input {
-  float: right;
-  padding: 6px;
-  border: none;
-  margin-top: 8px;
-  margin-right: 16px;
-  font-size: 17px;
-  border-radius: 5px;
-  width: 20rem;
-  font: 1em;
   align-items: center;
-}
-.search-btn {
-  float: right;
-  padding: 6px;
-  margin-top: 8px;
-  margin-right: 16px;
-  background: #ed0480;
-  color: seashell;
-  font-size: 17px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  font: 1em;
-}
-.auth-btn {
-  float: right;
-  padding: 6px;
-  background: #ed0480;
-  color: seashell;
-  font-size: 17px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  font: 1em;
-  display: inline;
   height: auto;
   width: 7.5rem;
   margin: 1.5rem;
@@ -130,6 +159,7 @@ body {
   margin: 10px;
   padding: 10px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   background-color: #e9e9e9;
   font-weight: 800;
@@ -138,9 +168,10 @@ body {
 }
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-  .card {
+  .card .header .footer .msg-brd .nav-items .search-btn .auth-btn {
     width: 100%;
-    display: inline-block;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
   }
@@ -148,9 +179,10 @@ body {
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (max-width: 800px) {
-  .card {
+  .card .header .footer .msg-brd .nav-items .search-btn .auth-btn {
     width: 100%;
-    display: inline-block;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
   }
