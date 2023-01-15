@@ -7,7 +7,7 @@ function filterData(searchText, restaurants) {
   const filterData = restaurants.filter((restaurant) =>
     restaurant?.data?.cuisines?.some((cuisine) =>
       // The some() method tests whether at least one element in the cuisines array passes the test implemented by the provided function.
-      cuisine.toLowerCase().includes(searchText.toLowerCase())
+      cuisine?.toLowerCase()?.includes(searchText.toLowerCase())
     )
   );
   return filterData;
@@ -17,7 +17,6 @@ const Body = () => {
   const [allRestaurants, setallRestaurants] = useState([]);
   const [filteredRestaurants, setfilteredRestaurants] =
     useState(allRestaurants);
-  let [searchCounter, setSearchCounter] = useState(0);
   //useState Hook return = [varName,setFunction to update var]
   //In react we use state to create var as vars are react local storage.
   // to set default value pass args to useState("Args")
@@ -33,12 +32,10 @@ const Body = () => {
 
   // if (!allRestaurants) return null;
 
-  // if (filteredRestaurants?.length === 0)
-  //   return <ShimmerPostList postStyle="STYLE_FOUR" col={3} row={2} gap={30} />;
+  if (filteredRestaurants?.length === 0)
+    return <ShimmerPostList postStyle="STYLE_FOUR" col={3} row={2} gap={30} />;
 
-  return filteredRestaurants?.length === 0 ? (
-    <ShimmerPostList postStyle="STYLE_FOUR" col={3} row={3} gap={20} />
-  ) : (
+  return (
     <>
       <div className="search-container">
         <input
@@ -58,7 +55,6 @@ const Body = () => {
             if (SearchTxt.length > 0) {
               const data = filterData(SearchTxt, allRestaurants);
               setfilteredRestaurants(data);
-              setSearchCounter((searchCounter += 1));
             } else {
               {
                 alert("Please enter a value to Search");
@@ -68,12 +64,11 @@ const Body = () => {
         >
           Search
         </button>
-        <span className="search-counter"> 🔎 {searchCounter} Times </span>
       </div>
       <div className="restaurant-list">
-        {filteredRestaurants.map((restaurant) => {
+        {filteredRestaurants?.map((restaurant) => {
           return (
-            <ResturantCard {...restaurant.data} key={restaurant.data.id} />
+            <ResturantCard {...restaurant?.data} key={restaurant?.data?.id} />
           );
         })}
       </div>

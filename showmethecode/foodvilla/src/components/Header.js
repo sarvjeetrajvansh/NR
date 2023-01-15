@@ -1,46 +1,39 @@
 import { useState } from "react";
+import Logo from "../../assets/logo.jpeg";
+import { Link } from "react-router-dom";
 
-const Title = () => {
-  return (
-    <a href="/">
-      <img
-        className="logo"
-        src="https://yt3.ggpht.com/ytc/AMLnZu_EC-ECXAxRAixWGEfMsE1rdSoetBHyxmLNdtCB=s900-c-k-c0x00ffffff-no-rj"
-        alt="logo"
-      />
-    </a>
-  );
-};
 const Header = () => {
   const [isLoggedIn, setisLoggedIn] = useState(false);
   return (
     <>
       <div className="header">
-        <Title />
+        <Link to="">
+          <img className="logo" src={Logo} alt="logo" />
+        </Link>
         <div className="nav-items">
           <ul>
             <li>
-              {" "}
-              <a href="/">Home </a>
+              <Link to="">Home </Link>
             </li>
             <li>
-              {" "}
-              <a href="/">About </a>
+              <Link to="About">About </Link>
             </li>
             <li>
-              {" "}
-              <a href="/">Contact </a>
+              <Link to="Contact">Contact </Link>
             </li>
             <li>
-              {" "}
-              <a href="/">Cart </a>
+              <Link to="">Cart </Link>
             </li>
           </ul>
         </div>
         {isLoggedIn ? (
-          <button onClick={() => setisLoggedIn(false)}>Logout</button>
+          <button className="auth-btn" onClick={() => setisLoggedIn(false)}>
+            Logout
+          </button>
         ) : (
-          <button onClick={() => setisLoggedIn(true)}>Login</button>
+          <button className="auth-btn" onClick={() => setisLoggedIn(true)}>
+            Login
+          </button>
         )}
       </div>
     </>
