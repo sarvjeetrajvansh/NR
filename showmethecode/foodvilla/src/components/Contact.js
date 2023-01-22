@@ -2,7 +2,7 @@ const Contact = () => {
   return (
     <>
       <div className="msg-brd">
-        <h1>Bhai kuch fata hai to hmse mt puch</h1>
+        <h1>Please mail us at : support@foodvilla.com</h1>
       </div>
     </>
   );

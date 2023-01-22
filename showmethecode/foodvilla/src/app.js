@@ -9,6 +9,7 @@ import Contact from "./components/Contact";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Profile from "./components/Profile";
+import { ShimmerThumbnail } from "react-shimmer-effects-18";
 
 const About = lazy(() => import("./components/About"));
 
@@ -41,7 +42,11 @@ const appRouter = createBrowserRouter([
         children: [
           {
             path: "profile",
-            element: <Profile />,
+            element: (
+              <Suspense fallback={<ShimmerThumbnail height={250} rounded />}>
+                <Profile />
+              </Suspense>
+            ),
           },
         ],
       },

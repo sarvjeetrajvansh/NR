@@ -1,15 +1,15 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
+import Profile from "./Profile";
 const About = () => {
   return (
     <>
       <div className="msg-brd">
-        <h1>welcome to Foodvilla</h1>
+        <h1>Welcome to Foodvilla</h1>
       </div>
-      <div className="msg-brd">This product is Developed by :</div>
       <div className="msg-brd">
-        <br />
-        <Outlet />
+        <Link to={"profile"}> Click to see developer details:</Link>
       </div>
+      <div className="msg-brd">{[<Outlet />]}</div>
     </>
   );
 };
