@@ -2,15 +2,9 @@ import { ResturantList_URL } from "../config";
 import ResturantCard from "./ResturantCard";
 import { useState, useEffect } from "react";
 import { ShimmerPostList } from "react-shimmer-effects-18";
+import useOnline from "../Utils/useOnline";
+import { filterData } from "../Utils/Filter";
 
-function filterData(searchText, restaurants) {
-  const filterData = restaurants.filter((restaurant) =>
-    restaurant?.data?.cuisines?.some((cuisine) =>
-      cuisine?.toLowerCase()?.includes(searchText.toLowerCase())
-    )
-  );
-  return filterData;
-}
 const Body = () => {
   const [SearchTxt, setSearchText] = useState("");
   const [allRestaurants, setallRestaurants] = useState([]);
@@ -25,6 +19,10 @@ const Body = () => {
     const json = await apidata.json();
     setallRestaurants(json?.data?.cards[2]?.data?.data?.cards);
     setfilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+  }
+  const isOnline = useOnline();
+  if (!isOnline) {
+    return <h1>Not Online</h1>;
   }
   // not render component (Early return)
   if (!allRestaurants) return null;
@@ -59,10 +57,11 @@ const Body = () => {
           Search
         </button>
       </div>
-
       <div className="restaurant-list">
         {filteredRestaurants?.map((restaurant) => {
-          return <ResturantCard {...restaurant?.data} />;
+          return (
+            <ResturantCard {...restaurant?.data} key={restaurant?.data.id} />
+          );
         })}
       </div>
     </>

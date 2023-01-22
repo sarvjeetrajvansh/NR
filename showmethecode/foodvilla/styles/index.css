@@ -41,6 +41,22 @@ body {
   padding: 0.6rem;
   width: max-content;
 }
+.menu-list {
+  display: inline-block;
+  border: 1px solid #ed0480;
+}
+.menu-list > ul {
+  list-style-type: decimal;
+  padding: 1rem;
+  display: block;
+}
+.menu-list > ul > li {
+  padding: 0.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: right;
+  flex-flow: column;
+}
 .resturant-details {
   border-left: 1px solid silver;
   display: block;
@@ -60,12 +76,6 @@ body {
 .menu span {
   font-size: xx-small;
   padding: 0.2rem;
-}
-.menu-page {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
 }
 .menu > img {
   width: 300px;
@@ -91,7 +101,7 @@ body {
   align-items: center;
   border-bottom: 1px solid #e9e9e9;
   flex-basis: 0;
-  flex-grow: 0;
+  flex-grow: 1;
 }
 .card:hover {
   box-shadow: 1px 0px 6px 1px silver;

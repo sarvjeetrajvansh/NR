@@ -1,20 +1,11 @@
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { IMG_CDN_URL, RES_MENU_API } from "../config";
+import { IMG_CDN_URL } from "../config";
 import { ShimmerCategoryList } from "react-shimmer-effects-18";
+import useRestaurant from "../Utils/useRestaurant";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
-  const [restaurant, setrestaurant] = useState(null);
-
-  useEffect(() => {
-    getResturantInfo();
-  }, []);
-  async function getResturantInfo() {
-    const apiData = await fetch(RES_MENU_API + resId);
-    const jsonData = await apiData.json();
-    setrestaurant(jsonData.data);
-  }
+  const restaurant = useRestaurant(resId);
   return !restaurant ? (
     <ShimmerCategoryList />
   ) : (
