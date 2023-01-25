@@ -6,7 +6,7 @@ const Error = () => {
   const err = useRouteError();
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       <div className="msg-brd">
         {/* <h2>{err.status + ":" + err.message} </h2> */}
         <img
@@ -15,7 +15,7 @@ const Error = () => {
           alt="{err.status + ':' + err.message}"
         />
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };
