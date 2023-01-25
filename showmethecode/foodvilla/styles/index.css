@@ -102,6 +102,10 @@ body {
   width: 300px;
   height: fit-content;
 }
+.error-img {
+  width: 60rem;
+  height: fit-content;
+}
 
 .menu-link {
   display: flex;
