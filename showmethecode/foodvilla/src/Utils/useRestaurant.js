@@ -9,7 +9,9 @@ const useRestaurant = (resId) => {
   async function getResturantInfo() {
     const apiData = await fetch(RES_MENU_API + resId);
     const jsonData = await apiData.json();
-    setrestaurant(jsonData.data);
+
+    // data.cards[2].groupedCard.cardGroupMap.REGULAR.cards[1].card.card.itemCards[0].card.info
+    setrestaurant(jsonData?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards[0]?.card?.info);
   }
   return restaurant;
 };

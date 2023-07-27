@@ -12,23 +12,23 @@ const RestaurantMenu = () => {
     <>
       <div className="menu-page">
         <div className="menu">
-          <img src={IMG_CDN_URL + restaurant?.cloudinaryImageId} />
+          <img src={IMG_CDN_URL + restaurant?.imageId} />
           <div className="resturant-details">
             <div className="res-identifier">
               {restaurant?.name} <span>[Resturant ID :{resId}]</span>
             </div>
             <div className="res-location">
-              <div>{restaurant?.area},</div>
-              <div>{restaurant?.city}</div>
+              <div>{restaurant?.category},</div>
+              <div>{restaurant?.description}</div>
             </div>
             <div>
-              {restaurant?.avgRating} ⭐️ | {restaurant?.costForTwoMsg}
+              {restaurant?.ratings?.aggregatedRating?.rating} ⭐️ | {restaurant?.price/100}
             </div>
           </div>
         </div>
         <div className="menu-list">
           <ul>
-            {Object.values(restaurant?.menu?.items).map((item) => (
+            {Object.values(restaurant).map((item) => (
               <li key={item.id}>{item.name}</li>
             ))}
           </ul>
