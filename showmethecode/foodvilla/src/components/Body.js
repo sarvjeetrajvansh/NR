@@ -14,11 +14,14 @@ const Body = () => {
     getResturants();
   }, []);
 
+// data.cards[5].card.card.gridElements.infoWithStyle.restaurants[0].info
+// json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+
   async function getResturants() {
     const apidata = await fetch(ResturantList_URL);
     const json = await apidata.json();
-    setallRestaurants(json?.data?.cards[2]?.data?.data?.cards);
-    setfilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+    setallRestaurants(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setfilteredRestaurants(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   }
   const isOnline = useOnline();
   if (!isOnline) {
@@ -60,7 +63,7 @@ const Body = () => {
       <div className="restaurant-list">
         {filteredRestaurants?.map((restaurant) => {
           return (
-            <ResturantCard {...restaurant?.data} key={restaurant?.data.id} />
+            <ResturantCard {...restaurant?.info} key={restaurant?.info.id} />
           );
         })}
       </div>
